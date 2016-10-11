@@ -2,8 +2,8 @@ package com.manglolab.mangopost.ui.presenters;
 
 import com.manglolab.mangopost.events.ErrorEvent;
 import com.manglolab.mangopost.events.NewPostsEvent;
-import com.manglolab.mangopost.model.PostsAPI;
 import com.manglolab.mangopost.model.pojo.Post;
+import com.manglolab.mangopost.services.PostsAPIService;
 
 import java.util.List;
 
@@ -16,10 +16,10 @@ import rx.schedulers.Schedulers;
 
 public class PostsPresenter {
 
-    PostsAPI postsAPI;
+    PostsAPIService postsAPI;
 
     @Inject
-    public PostsPresenter(PostsAPI postsAPI) {
+    public PostsPresenter(PostsAPIService postsAPI) {
         this.postsAPI = postsAPI;
     }
 
