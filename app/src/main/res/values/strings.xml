@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Daily Post</string>
+    <string name="app_name">Daily Comments</string>
     <string name="posts_activity">Recent Posts</string>
+    <string name="comments_activity">Recent Comments</string>
 
-    <string name="list_sample">Show Posts</string>
+    <string name="list_sample">Show Comments</string>
     <string name="launching_posts_activity">Launching Posts Activity..</string>
     <string name="error">Error! Check your network connection!</string>
 </resources>

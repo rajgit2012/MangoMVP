@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements IMasterScreen {
 
     @Override
     public void launchPostsActivity() {
-        Intent intent = new Intent(this, PostsActivity.class);
+        //Intent intent = new Intent(this, PostsActivity.class);
+        Intent intent = new Intent(this, CommentsActivity.class);
         startActivity(intent);
     }
 

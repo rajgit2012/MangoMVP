@@ -23,6 +23,10 @@
             android:name=".ui.activities.PostsActivity"
             android:label="@string/posts_activity">
         </activity>
+        <activity
+            android:name=".ui.activities.CommentsActivity"
+            android:label="@string/comments_activity">
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,9 @@
     <dimen name="post_title_size">24sp</dimen>
     <dimen name="post_body_margin_top">8dp</dimen>
     <dimen name="post_body_size">16sp</dimen>
+    <dimen name="comment_name_size">24sp</dimen>
+    <dimen name="comment_email_size">12sp</dimen>
+    <dimen name="comment_body_size">16sp</dimen>
     <dimen name="post_row_item_margin_top">8dp</dimen>
     <dimen name="post_row_item_margin_bottom">8dp</dimen>
     <dimen name="material_headline">24sp</dimen>

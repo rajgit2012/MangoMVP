@@ -11,11 +11,11 @@ import android.widget.TextView;
 import com.manglolab.mangopost.R;
 import com.manglolab.mangopost.dagger.DaggerInjector;
 import com.manglolab.mangopost.events.ErrorEvent;
-import com.manglolab.mangopost.events.NewPostsEvent;
-import com.manglolab.mangopost.ui.adapters.PostsListAdapter;
-import com.manglolab.mangopost.ui.contracts.IPostScreen;
+import com.manglolab.mangopost.events.NewCommentsEvent;
+import com.manglolab.mangopost.ui.adapters.CommentsListAdapter;
+import com.manglolab.mangopost.ui.contracts.ICommentScreen;
 import com.manglolab.mangopost.ui.decorators.DividerItemDecoration;
-import com.manglolab.mangopost.ui.presenters.PostsPresenter;
+import com.manglolab.mangopost.ui.presenters.CommentsPresenter;
 
 import javax.inject.Inject;
 
@@ -23,30 +23,30 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
-public class PostsActivity extends AppCompatActivity implements IPostScreen {
+public class CommentsActivity extends AppCompatActivity implements ICommentScreen {
 
     @Inject
-    PostsPresenter postsPresenter;
+    CommentsPresenter commentsPresenter;
 
     @InjectView(R.id.posts_recycler_view)
-    RecyclerView postsRecyclerView;
+    RecyclerView commentsRecyclerView;
 
     @InjectView(R.id.error_view)
     TextView errorView;
 
-    PostsListAdapter postsListAdapter;
+    CommentsListAdapter commentsListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_posts);
+        setContentView(R.layout.activity_comments);
 
-        //DaggerInjector.get().inject(this);
-        //ButterKnife.inject(this);
+        DaggerInjector.get().inject(this);
+        ButterKnife.inject(this);
 
         initRecyclerView();
-        postsPresenter.loadPostsFromAPI();
+        commentsPresenter.loadCommentsFromAPI();
     }
 
     @Override
@@ -62,18 +62,18 @@ public class PostsActivity extends AppCompatActivity implements IPostScreen {
     }
 
     public void initRecyclerView() {
-        postsRecyclerView.setHasFixedSize(true);
-        postsRecyclerView.setLayoutManager(new LinearLayoutManager(postsRecyclerView.getContext()));
-        postsRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        postsRecyclerView.addItemDecoration(new DividerItemDecoration(postsRecyclerView.getContext(),
+        commentsRecyclerView.setHasFixedSize(true);
+        commentsRecyclerView.setLayoutManager(new LinearLayoutManager(commentsRecyclerView.getContext()));
+        commentsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        commentsRecyclerView.addItemDecoration(new DividerItemDecoration(commentsRecyclerView.getContext(),
                                                                       DividerItemDecoration.VERTICAL_LIST));
-        postsListAdapter = new PostsListAdapter();
-        postsRecyclerView.setAdapter(postsListAdapter);
+        commentsListAdapter = new CommentsListAdapter();
+        commentsRecyclerView.setAdapter(commentsListAdapter);
     }
 
-    public void onEventMainThread(NewPostsEvent newPostsEvent) {
+    public void onEventMainThread(NewCommentsEvent newCommentsEvent) {
         hideError();
-        postsListAdapter.addPosts(newPostsEvent.getPosts());
+        commentsListAdapter.addPosts(newCommentsEvent.getComments());
     }
 
     public void onEventMainThread(ErrorEvent errorEvent) {
@@ -81,12 +81,12 @@ public class PostsActivity extends AppCompatActivity implements IPostScreen {
     }
 
     private void hideError() {
-        postsRecyclerView.setVisibility(View.VISIBLE);
+        commentsRecyclerView.setVisibility(View.VISIBLE);
         errorView.setVisibility(View.GONE);
     }
 
     private void showError() {
-        postsRecyclerView.setVisibility(View.GONE);
+        commentsRecyclerView.setVisibility(View.GONE);
         errorView.setVisibility(View.VISIBLE);
     }
 }
