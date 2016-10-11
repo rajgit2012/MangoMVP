@@ -1,6 +1,6 @@
 package com.manglolab.mangopost.ui.presenters;
 
-import com.manglolab.mangopost.ui.screen_contracts.MainScreen;
+import com.manglolab.mangopost.ui.contracts.IMasterScreen;
 
 import javax.inject.Inject;
 
@@ -10,8 +10,7 @@ public class MainPresenter {
     public MainPresenter() {
     }
 
-    public void OnShowPostsButtonClick(MainScreen mainScreen) {
-        mainScreen.launchPostsActivity();
+    public void OnShowPostsButtonClick(IMasterScreen masterScreen) {
+        masterScreen.launchPostsActivity();
     }
-
 }

@@ -6,15 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.manglolab.mangopost.R;
 import com.manglolab.mangopost.dagger.DaggerInjector;
+import com.manglolab.mangopost.ui.contracts.IMasterScreen;
 import com.manglolab.mangopost.ui.presenters.MainPresenter;
-import com.manglolab.mangopost.ui.screen_contracts.MainScreen;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements MainScreen {
+public class MainActivity extends AppCompatActivity implements IMasterScreen {
 
     @Inject
     MainPresenter mainPresenter;

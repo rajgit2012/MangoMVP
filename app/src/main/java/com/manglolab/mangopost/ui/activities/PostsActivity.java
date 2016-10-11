@@ -13,9 +13,9 @@ import com.manglolab.mangopost.dagger.DaggerInjector;
 import com.manglolab.mangopost.events.ErrorEvent;
 import com.manglolab.mangopost.events.NewPostsEvent;
 import com.manglolab.mangopost.ui.adapters.PostsListAdapter;
+import com.manglolab.mangopost.ui.contracts.IPostScreen;
 import com.manglolab.mangopost.ui.decorators.DividerItemDecoration;
 import com.manglolab.mangopost.ui.presenters.PostsPresenter;
-import com.manglolab.mangopost.ui.screen_contracts.PostsScreen;
 
 import javax.inject.Inject;
 
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import de.greenrobot.event.EventBus;
 
-public class PostsActivity extends AppCompatActivity implements PostsScreen {
+public class PostsActivity extends AppCompatActivity implements IPostScreen {
 
     @Inject
     PostsPresenter postsPresenter;

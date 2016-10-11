@@ -15,6 +15,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class PostsPresenter {
+
     PostsAPI postsAPI;
 
     @Inject
