@@ -22,7 +22,6 @@ public class CommentsAPIService {
 
     private Observable<List<Comment>> commentsObservable = new RestAdapter.Builder()
             .setEndpoint("http://jsonplaceholder.typicode.com")
-            //.setEndpoint("http://api.soundcloud.com/tracks.json?client_id=eaa94ce390b65f2abbcfb602d102aeab&q=chicago&limit=50")
             .build().create(CommentsAPIService.CommentService.class).getCommentsList().cache();
 
 
